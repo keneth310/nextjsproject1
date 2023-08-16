@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between bg-white text-black">
+    <main className="flex flex-col justify-between bg-white">
       <div className="relative w-full flex justify-center mb-4">
           <h2 className="text-lg font-semibold mt-10">
             Computer Science Major Tracker
