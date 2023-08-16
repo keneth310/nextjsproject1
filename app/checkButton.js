@@ -9,11 +9,11 @@ export default function CheckboxButton({ label }) {
   };
 
   return (
-    <li className="rounded-lg border border-black">
+    <li className="border border-black mb-2">
       <label
-        className={`block cursor-pointer p-2 rounded-lg ${
+        className={`block cursor-pointer p-2 border border-black ${
           isChecked
-            ? 'bg-green-400 text-white'
+            ? 'bg-[#5DF91482]'
             : 'bg-white hover:bg-gray-100'
         }`}
       >
