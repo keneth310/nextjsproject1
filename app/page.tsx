@@ -6,25 +6,17 @@ import CheckboxButton from './checkButton';
 
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
-  const [selectedCourses, setSelectedCourses] = useState([]);
-
+  const [selectedItems, setSelectedItems] = useState([]);
+  const selectedItemCount = selectedItems.length;
 
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
   };
 
-  const handleSubmit = () => {
-    const newSelectedCourses = [];
-    // Loop through the checkboxes and add selected courses to the array
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.isChecked) {
-        newSelectedCourses.push(checkbox.label);
-      }
-    });
-  
-    setSelectedCourses(newSelectedCourses);
-  };
+  // const handleSubmit = () => {
+
+  // };
   
 
   return (
@@ -46,9 +38,12 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">Intro Courses</h3>
                 <ul className="pl-6">
-                  <CheckboxButton label="CSCI51: Intro to CS" />
-                  <CheckboxButton label="CSCI54: Discrete Math and Functional Programming" />
-                  <CheckboxButton label="CSCI62: Data Structures and Advanced Programming" />
+                  <CheckboxButton label="CSCI51: Intro to CS" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI54: Discrete Math and Functional Programming" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI62: Data Structures and Advanced Programming" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
                 </ul>
               </div>
 
@@ -58,8 +53,10 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">Math Course</h3>
                 <ul className="list-none pl-6">
-                  <CheckboxButton label="MATH58: Intro to Statistics" />
-                  <CheckboxButton label="MATH60: Linear Algebra" />
+                  <CheckboxButton label="MATH58: Intro to Statistics" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="MATH60: Linear Algebra" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
 
                 </ul>
               </div>
@@ -68,9 +65,12 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">Core Courses</h3>
                 <ul className="list-none pl-6">
-                  <CheckboxButton label="CSCI101: Intro to Languages and Theory of Computation" />
-                  <CheckboxButton label="CSCI105: Computer Systems" />
-                  <CheckboxButton label="CSCI140: Algorithms" />
+                  <CheckboxButton label="CSCI101: Intro to Languages and Theory of Computation" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems} />
+                  <CheckboxButton label="CSCI105: Computer Systems" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI140: Algorithms" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
 
                 </ul>
               </div>
@@ -79,38 +79,54 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">3 Elective Courses</h3>
                 <ul className="list-none pl-6">
-                  <CheckboxButton label="CSCI124: User Interfaces and User Experience" />
-                  <CheckboxButton label="CSCI131: Programming Languages" />
-                  <CheckboxButton label="CSCI133: Database Systems" />
-                  <CheckboxButton label="CSCI134: Operating Systems Principles" />
-                  <CheckboxButton label="CSCI143: Applied Algorithms" />
-                  <CheckboxButton label="CSCI151: Artificial Intelligence" /> 
-                  <CheckboxButton label="CSCI152: Neural Networks" />
-                  <CheckboxButton label="CSCI158: Machine Learning" />
-                  <CheckboxButton label="CSCI159: Natural Language Processing" />
-                  <CheckboxButton label="CSCI181G: Real-Time Graphics and Game Engine Programming" />
-                  <CheckboxButton label="CSCI181N: Advanced Functional Programming" />
-                  <CheckboxButton label="CSCI181OR: Computer Organization and Design" />
-                  <CheckboxButton label="CSCI181Q: Graph Algorithm and Application" />
-                  <CheckboxButton label="CSCI181S: System Security" />
+                  <CheckboxButton label="CSCI124: User Interfaces and User Experience" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI131: Programming Languages" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI133: Database Systems" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI134: Operating Systems Principles" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI143: Applied Algorithms" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI151: Artificial Intelligence" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/> 
+                  <CheckboxButton label="CSCI152: Neural Networks" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI158: Machine Learning" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI159: Natural Language Processing" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI181G: Real-Time Graphics and Game Engine Programming" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI181N: Advanced Functional Programming" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI181OR: Computer Organization and Design" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI181Q: Graph Algorithm and Application" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
+                  <CheckboxButton label="CSCI181S: System Security" selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}/>
 
                 </ul>
               </div>
 
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4" onClick={handleSubmit}>
+              {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4" onClick={handleSubmit}>
                 Submit
-              </button>
+              </button> */}
 
               {/* new section with progress */}
               <div className="mt-6">
-                <h3 className="font-semibold">Selected Courses</h3>
+                <h3 className="font-semibold">Selected Items</h3>
                 <ul className="list-none pl-6">
-                  {selectedCourses.map((course, index) => (
-                    <li key={index}>{course}</li>
+                  {selectedItems.map((item, index) => (
+                    <li key={index}>{item}</li>
                   ))}
                 </ul>
-                <p className="mt-2">Count: {selectedCourses.length}</p>
               </div>
+
+              <p className="mt-2">Count: {selectedItemCount}</p>
+
 
 
             </div>
