@@ -8,6 +8,47 @@ export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const selectedItemCount = selectedItems.length;
+  const IntroList = [
+    "CSCI51: Intro to CS",
+    "CSCI54: Discrete Math and Functional Programming",
+    "CSCI62: Data Structures and Advanced Programming"
+  ];
+  const mathList = [
+    "MATH58: Intro to Statistics",
+    "MATH60: Linear Algebra"
+  ];
+  const coreList = [
+    "CSCI101: Intro to Languages and Theory of Computation",
+    "CSCI105: Computer Systems",
+    "CSCI140: Algorithms"
+  ];
+  const electiveList = [
+    "CSCI124: User Interfaces and User Experience",
+    "CSCI131: Programming Languages",
+    "CSCI133: Database Systems",
+    "CSCI134: Operating Systems Principles",
+    "CSCI143: Applied Algorithms",
+    "CSCI151: Artificial Intelligence",
+    "CSCI152: Neural Networks",
+    "CSCI158: Machine Learning",
+    "CSCI159: Natural Language Processing",
+    "CSCI181G: Real-Time Graphics and Game Engine Programming",
+    "CSCI181N: Advanced Functional Programming",
+    "CSCI181OR: Computer Organization and Design",
+    "CSCI181Q: Graph Algorithm and Application",
+    "CSCI181S: System Security",
+    "CSCI181SL: Managing Complex Systems Lab",
+    "CSCI181VL: Principles of Programming Languages: Object-Oriented",
+    "CSCI181W: Usable Security and Privacy",
+    "CSCI188L: Computer Science Colloquium",
+    "CSCI190: Computer Science Senior Seminar",
+    "CSCI191: Senior Research/Thesis",
+    "CSCI192: Senior Project",
+    "CSCI199DR: Computer Science: Directed Readings",
+    "CSCI199IR: Computer Science: Independent Research",
+    "CSCI199RA: Computer Science: Research Assistantship"
+  ];
+      
 
 
   const toggleCheckbox = () => {
@@ -117,13 +158,49 @@ export default function Home() {
 
               {/* new section with progress */}
               <div className="mt-6">
-                <h3 className="font-semibold">Selected Items</h3>
+                <h3 className="font-semibold">Completed Courses:</h3>
                 <ul className="list-none pl-6">
-                  {selectedItems.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
+                  {selectedItems.map((item, index) => {
+                    if (IntroList.includes(item)) {
+                      return (
+                        <React.Fragment key={index}>
+                          <h3 className="font-semibold">Intro Courses</h3>
+                          <li>{item}</li>
+                        </React.Fragment>
+                      );
+                    } else if (mathList.includes(item)) {
+                      return (
+                        <React.Fragment key={index}>
+                          <h3 className="font-semibold">Math Courses</h3>
+                          <li>{item}</li>
+                        </React.Fragment>
+                      );
+                    }  else if (coreList.includes(item)) {
+                      return (
+                        <React.Fragment key={index}>
+                          <h3 className="font-semibold">Core Courses</h3>
+                          <li>{item}</li>
+                        </React.Fragment>
+                      );
+                    }  else if (electiveList.includes(item)) {
+                      return (
+                        <React.Fragment key={index}>
+                          <h3 className="font-semibold">Elective Courses</h3>
+                          <li>{item}</li>
+                        </React.Fragment>
+                      );
+                    }
+                    
+                    
+                    
+                    
+                    else {
+                      return <li key={index}>{item}</li>;
+                    }
+                  })}
                 </ul>
               </div>
+
 
               <p className="mt-2">Count: {selectedItemCount}</p>
 
