@@ -6,10 +6,26 @@ import CheckboxButton from './checkButton';
 
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
+  const [selectedCourses, setSelectedCourses] = useState([]);
+
+
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
   };
+
+  const handleSubmit = () => {
+    const newSelectedCourses = [];
+    // Loop through the checkboxes and add selected courses to the array
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.isChecked) {
+        newSelectedCourses.push(checkbox.label);
+      }
+    });
+  
+    setSelectedCourses(newSelectedCourses);
+  };
+  
 
   return (
     <main className="flex flex-col justify-between bg-white font-mono">
@@ -19,7 +35,7 @@ export default function Home() {
           </h2>
       </div>
 
-      <div className="flex flex-row space-x-4">
+      <div className="flex flex-row space-x-4 mb-10">
         <div className="flex-1 flex items-center justify-center">
           <div className="ml-4 mr-4 p-2 bg-transparent my-4 border border-black h-full w-[700px] flex items-center justify-center">
             {/* column 1 */}
@@ -38,7 +54,7 @@ export default function Home() {
 
 
 
-              {/* Section 3: 1 math course */}
+              {/* Section 2: 1 math course */}
               <div>
                 <h3 className="font-semibold">Math Course</h3>
                 <ul className="list-none pl-6">
@@ -48,7 +64,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Section 2: 3 core courses */}
+              {/* Section 3: 3 core courses */}
               <div>
                 <h3 className="font-semibold">Core Courses</h3>
                 <ul className="list-none pl-6">
@@ -68,7 +84,7 @@ export default function Home() {
                   <CheckboxButton label="CSCI133: Database Systems" />
                   <CheckboxButton label="CSCI134: Operating Systems Principles" />
                   <CheckboxButton label="CSCI143: Applied Algorithms" />
-                  <CheckboxButton label="CSCI151: Artificial Intelligence" />
+                  <CheckboxButton label="CSCI151: Artificial Intelligence" /> 
                   <CheckboxButton label="CSCI152: Neural Networks" />
                   <CheckboxButton label="CSCI158: Machine Learning" />
                   <CheckboxButton label="CSCI159: Natural Language Processing" />
@@ -80,6 +96,23 @@ export default function Home() {
 
                 </ul>
               </div>
+
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4" onClick={handleSubmit}>
+                Submit
+              </button>
+
+              {/* new section with progress */}
+              <div className="mt-6">
+                <h3 className="font-semibold">Selected Courses</h3>
+                <ul className="list-none pl-6">
+                  {selectedCourses.map((course, index) => (
+                    <li key={index}>{course}</li>
+                  ))}
+                </ul>
+                <p className="mt-2">Count: {selectedCourses.length}</p>
+              </div>
+
+
             </div>
           </div>
         </div>
